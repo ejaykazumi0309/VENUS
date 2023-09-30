@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quizzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        
+        
+        .container {
+            background-color: white;
+            width: 300px;
+            margin-left: 20px;
+            box-shadow: 0px 0px 25px 0px #00ccff;
+        }
+        
+        h1 {
+            color: #00ccff;
+        }
+        
+        .btn-1 {
+            background-color: #00ccff;
+            width: 100px;
+            height: 50px;
+            box-shadow: 0px 0px 15px 0px skyblue;
+            border-radius: 10px;
+            border: none;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Take Quiz</h1>
+        <form id="quizForm">
+            <div class="question" id="question1">
+                <div class="container">
+                
+                <h3>Question 1:</h3>
+                <p>What is CPU?</p>
+                <label><input type="radio" name="q1" value="C"> Central Process Unit</label><br>
+                <label><input type="radio" name="q1" value="1"> Central Processing Unit</label><br>
+                <label><input type="radio" name="q1" value="Madrid"> Computer Processing Unit</label><br>
+            </div>
+            </div>
+            <div class="question" id="question2">
+            <div class="container">
+                <h3>Question 2:</h3>
+                <p>What hardware do we use to move the cursor in monitor?</p>
+                <label><input type="radio" name="q2" value="H2O"> Keyboard</label><br>
+                <label><input type="radio" name="q2" value="CO2"> Power Supply</label><br>
+                <label><input type="radio" name="q2" value="2">Mouse</label><br>
+                </div>
+                </div>
+            
+            <div class="question" id="question3">
+                <div class="container">
+                <h3>Question 3:</h3>
+                <p>What is PSU?</p>
+                <label><input type="radio" name="q3" value="1"> Power System Unit</label><br>
+                <label><input type="radio" name="q3" value="4"> Program System Unit</label><br>
+                <label><input type="radio" name="q3" value="5"> Power Size Unit</label><br>
+                  </div>
+                
+                
+                <div class="container">
+                <h3>Question 4:</h3>
+                <p>What is the hardware use to see the visual/GUI of computer?</p>
+                <label><input type="radio" name="q4" value="3"> Motherboard</label><br>
+                <label><input type="radio" name="q4" value="4"> Power Suply</label><br>
+                <label><input type="radio" name="q4" value="Monitor">Monitor</label><br>
+            </div>
+            </div>
+            <button class="btn-1" type="button" onclick="submitQuiz()">Submit</button>
+        </form>
+        <div id="score"></div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            let score = 0;
+            const answers = {
+                q1: "1",
+                q2: "2",
+                q3: "1",
+                q4: "Monitor"
+            };
+
+            for (let i = 1; i <= 4; i++) {
+                const selectedAnswer = document.querySelector(`input[name=q${i}]:checked`).value;
+                if (selectedAnswer === answers[`q${i}`]) {
+                    score++;
+                }
+            }
+
+            alert(`Your score is: ${score}/4`);
+        }
+        
+    </script>
+</body>
+</html>
